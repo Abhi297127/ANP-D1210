@@ -1,6 +1,6 @@
-# 📘 Anudeep Sir's Assignments
+# 📘 AKash Sir's Assignments
 
-This repository contains all practical assignments given by **Anudeep Sir** as part of the BCA curriculum. It also includes details of the Web Development course currently being taken.
+This repository contains all practical assignments given by **Akash Sir** as part of the BCA curriculum. It also includes details of the Web Development course currently being taken.
 
 ---
 
