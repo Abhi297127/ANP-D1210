@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Abhi Shelke - Portfolio</title>
+  <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 50%, #6c5ce7 100%);
+            min-height: 100vh;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            border-radius: 25px;
+            padding: 3rem;
+            box-shadow: 
+                0 25px 50px rgba(0, 0, 0, 0.15),
+                0 0 0 1px rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+            animation: slideUp 0.8s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #74b9ff, #0984e3, #6c5ce7, #fd79a8);
+            background-size: 300% 100%;
+            animation: gradientShift 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        .profile-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .profile-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #74b9ff, #6c5ce7);
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+            font-weight: bold;
+            box-shadow: 0 15px 30px rgba(116, 185, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            animation: shine 2s infinite;
+        }
+
+        @keyframes shine {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #74b9ff, #6c5ce7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+            letter-spacing: -1px;
+        }
+
+        .title {
+            font-size: 1.3rem;
+            color: #636e72;
+            font-weight: 500;
+            margin-bottom: 2rem;
+        }
+
+        .about-section {
+            background: linear-gradient(135deg, rgba(116, 185, 255, 0.1), rgba(108, 92, 231, 0.1));
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 1px solid rgba(116, 185, 255, 0.2);
+            position: relative;
+        }
+
+        .about-section::before {
+            content: '';
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #74b9ff, #6c5ce7);
+            border-radius: 15px;
+            opacity: 0.1;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #2d3436;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 30px;
+            background: linear-gradient(135deg, #74b9ff, #6c5ce7);
+            border-radius: 2px;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #2d3436;
+            text-align: justify;
+            position: relative;
+            z-index: 1;
+        }
+
+        .skills-highlight {
+            display: inline-block;
+            background: linear-gradient(135deg, rgba(116, 185, 255, 0.2), rgba(108, 92, 231, 0.2));
+            padding: 2px 8px;
+            border-radius: 6px;
+            font-weight: 600;
+            color: #0984e3;
+            margin: 0 2px;
+            transition: all 0.3s ease;
+        }
+
+        .skills-highlight:hover {
+            background: linear-gradient(135deg, #74b9ff, #6c5ce7);
+            color: white;
+            transform: translateY(-1px);
+        }
+
+        .decorative-elements {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 200px;
+            height: 200px;
+            opacity: 0.05;
+            pointer-events: none;
+        }
+
+        .decorative-elements::before {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: #74b9ff;
+            top: 0;
+            right: 0;
+            animation: float1 6s ease-in-out infinite;
+        }
+
+        .decorative-elements::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #6c5ce7;
+            bottom: 20px;
+            right: 60px;
+            animation: float2 4s ease-in-out infinite;
+        }
+
+        @keyframes float1 {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes float2 {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(15px); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                margin: 1rem;
+                padding: 2rem 1.5rem;
+            }
+
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            .title {
+                font-size: 1.1rem;
+            }
+
+            .about-section {
+                padding: 2rem 1.5rem;
+            }
+
+            .about-text {
+                font-size: 1rem;
+                text-align: left;
+            }
+
+            .profile-image {
+                width: 100px;
+                height: 100px;
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 1rem 0.5rem;
+            }
+
+            .container {
+                padding: 1.5rem 1rem;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+  <div class="container">
+    <div class="decorative-elements"></div>
+
+    <div class="profile-header">
+      <div class="profile-image">AS</div>
+      <h1>Abhi Shelke</h1>
+      <p class="title">BCA Student | Web Developer | Java Enthusiast</p>
+    </div>
+
+    <div class="about-section">
+      <h2 class="section-title">About Me</h2>
+      <p class="about-text">
+        Hello! I’m <strong>Abhi Shelke</strong>, a passionate and curious BCA student currently studying at <span class="skills-highlight">Abasaheb Garware College, Pune</span>. My journey in technology has led me to build projects in both <span class="skills-highlight">frontend</span> and <span class="skills-highlight">backend</span> development. I specialize in <span class="skills-highlight">Java</span>, <span class="skills-highlight">Spring Boot</span>, and also have experience in <span class="skills-highlight">Python</span>, <span class="skills-highlight">Streamlit</span>, and <span class="skills-highlight">MongoDB</span>.
+
+        <br /><br />I’ve developed full-stack projects such as a <span class="skills-highlight">GitHub Tracker</span>, <span class="skills-highlight">Traffic Violation Portal</span>, and a personal <span class="skills-highlight">Portfolio Website</span>. I’m always eager to explore new tools, contribute to real-world applications, and grow as a developer.
+
+        <br /><br />My academic background includes strong fundamentals in <span class="skills-highlight">Data Structures</span>, <span class="skills-highlight">Database Management</span>, and <span class="skills-highlight">Software Engineering</span>. I’m actively working to improve my skills in building scalable web applications and delivering clean, efficient code.
+      </p>
+    </div>
+  </div>
+</body>
+</html>
