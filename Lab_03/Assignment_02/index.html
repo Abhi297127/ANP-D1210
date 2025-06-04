@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Order Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 2.2em;
+        }
+        .form-group {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            background-color: #fafafa;
+        }
+        .product-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .product-name {
+            font-weight: bold;
+            color: #333;
+            font-size: 1.1em;
+        }
+        .product-price {
+            font-weight: bold;
+            color: #4CAF50;
+            font-size: 1.1em;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+        input[type="number"] {
+            width: 100px;
+            padding: 8px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        input[type="number"]:focus {
+            border-color: #4CAF50;
+            outline: none;
+        }
+        .calculate-btn {
+            background: linear-gradient(45deg, #4CAF50, #45a049);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+            display: block;
+            margin: 30px auto;
+            transition: transform 0.2s;
+        }
+        .calculate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
+        }
+        .total-section {
+            background: linear-gradient(45deg, #2196F3, #21CBF3);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            text-align: center;
+            display: none;
+        }
+        .total-amount {
+            font-size: 2em;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .item-breakdown {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            border-left: 4px solid #4CAF50;
+        }
+        .breakdown-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🛒 Product Order Form</h1>
+        <form>
+            <div class="form-group">
+                <div class="product-info">
+                    <span class="product-name">Laptop</span>
+                    <span class="product-price">$899.99</span>
+                </div>
+                <label for="laptop-qty">Enter Quantity:</label>
+                <input type="number" id="laptop-qty" name="laptop-qty" min="0" value="0">
+            </div>
+
+            <div class="form-group">
+                <div class="product-info">
+                    <span class="product-name">Smartphone</span>
+                    <span class="product-price">$599.99</span>
+                </div>
+                <label for="phone-qty">Enter Quantity:</label>
+                <input type="number" id="phone-qty" name="phone-qty" min="0" value="0">
+            </div>
+
+            <div class="form-group">
+                <div class="product-info">
+                    <span class="product-name">Headphones</span>
+                    <span class="product-price">$149.99</span>
+                </div>
+                <label for="headphones-qty">Enter Quantity:</label>
+                <input type="number" id="headphones-qty" name="headphones-qty" min="0" value="0">
+            </div>
+
+            <div class="form-group">
+                <div class="product-info">
+                    <span class="product-name">Gaming Mouse</span>
+                    <span class="product-price">$79.99</span>
+                </div>
+                <label for="mouse-qty">Enter Quantity:</label>
+                <input type="number" id="mouse-qty" name="mouse-qty" min="0" value="0">
+            </div>
+
+            <div class="form-group">
+                <div class="product-info">
+                    <span class="product-name">Mechanical Keyboard</span>
+                    <span class="product-price">$129.99</span>
+                </div>
+                <label for="keyboard-qty">Enter Quantity:</label>
+                <input type="number" id="keyboard-qty" name="keyboard-qty" min="0" value="0">
+            </div>
+
+            <div class="form-group">
+                <div class="product-info">
+                    <span class="product-name">Wireless Speaker</span>
+                    <span class="product-price">$89.99</span>
+                </div>
+                <label for="speaker-qty">Enter Quantity:</label>
+                <input type="number" id="speaker-qty" name="speaker-qty" min="0" value="0">
+            </div>
+
+            <button type="button" class="calculate-btn" onclick="calculateTotal()">Calculate Total Price</button>
+        </form>
+
+        <div id="total-section" class="total-section">
+            <h2>📋 Order Summary</h2>
+            <div id="breakdown" class="item-breakdown"></div>
+            <div class="total-amount" id="total-amount">$0.00</div>
+        </div>
+    </div>
+
+    <script>
+        function calculateTotal() {
+            // Product prices
+            const products = {
+                'laptop-qty': { name: 'Laptop', price: 899.99 },
+                'phone-qty': { name: 'Smartphone', price: 599.99 },
+                'headphones-qty': { name: 'Headphones', price: 149.99 },
+                'mouse-qty': { name: 'Gaming Mouse', price: 79.99 },
+                'keyboard-qty': { name: 'Mechanical Keyboard', price: 129.99 },
+                'speaker-qty': { name: 'Wireless Speaker', price: 89.99 }
+            };
+
+            let total = 0;
+            let breakdown = '';
+            let hasItems = false;
+
+            // Calculate total and create breakdown
+            for (let id in products) {
+                const quantity = parseInt(document.getElementById(id).value) || 0;
+                if (quantity > 0) {
+                    const subtotal = quantity * products[id].price;
+                    total += subtotal;
+                    breakdown += `
+                        <div class="breakdown-item">
+                            <span>${products[id].name} (${quantity}x)</span>
+                            <span>$${subtotal.toFixed(2)}</span>
+                        </div>
+                    `;
+                    hasItems = true;
+                }
+            }
+
+            // Display results
+            const totalSection = document.getElementById('total-section');
+            const breakdownDiv = document.getElementById('breakdown');
+            const totalAmount = document.getElementById('total-amount');
+
+            if (hasItems) {
+                breakdownDiv.innerHTML = breakdown;
+                totalAmount.textContent = `$${total.toFixed(2)}`;
+                totalSection.style.display = 'block';
+                
+                // Smooth scroll to results
+                totalSection.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                alert('Please select at least one item to calculate the total.');
+            }
+        }
+
+        // Optional: Real-time calculation as user types
+        document.addEventListener('DOMContentLoaded', function() {
+            const inputs = document.querySelectorAll('input[type="number"]');
+            inputs.forEach(input => {
+                input.addEventListener('input', function() {
+                    // Auto-calculate if user has already clicked calculate once
+                    if (document.getElementById('total-section').style.display === 'block') {
+                        calculateTotal();
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

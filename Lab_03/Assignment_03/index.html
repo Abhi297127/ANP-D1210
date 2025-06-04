@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Album Selection</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+        .albums-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        .albums-table th {
+            background: linear-gradient(45deg, #6a11cb, #2575fc);
+            color: white;
+            font-weight: bold;
+            padding: 20px;
+            text-align: center;
+            font-size: 1.1em;
+        }
+        .albums-table td {
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+            transition: background-color 0.3s ease;
+        }
+        .albums-table tr:hover {
+            background-color: #f8f9ff;
+        }
+        .album-cover {
+            width: 80px;
+            height: 80px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+        .album-cover:hover {
+            transform: scale(1.1);
+        }
+        .album-title {
+            font-weight: bold;
+            color: #333;
+            font-size: 1.1em;
+        }
+        .artist-name {
+            color: #666;
+            font-style: italic;
+            margin-top: 5px;
+        }
+        .genre-tag {
+            background: linear-gradient(45deg, #ff6b6b, #ffa500);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+        }
+        .select-btn {
+            background: linear-gradient(45deg, #4CAF50, #45a049);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        .select-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
+        }
+        .music-note {
+            display: inline-block;
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1><span class="music-note">🎵</span> Music Album Collection <span class="music-note">🎵</span></h1>
+        <p class="subtitle">Discover and select your favorite albums from our curated collection</p>
+        
+        <table class="albums-table">
+            <thead>
+                <tr>
+                    <th>Album Cover</th>
+                    <th>Album Details</th>
+                    <th>Genre</th>
+                    <th>Release Year</th>
+                    <th>Rating</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <div style="width: 80px; height: 80px; background: linear-gradient(45deg, #ff6b6b, #ffa500); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; margin: 0 auto;">ROCK</div>
+                    </td>
+                    <td>
+                        <div class="album-title">Dark Side of the Moon</div>
+                        <div class="artist-name">Pink Floyd</div>
+                    </td>
+                    <td><span class="genre-tag">Progressive</span></td>
+                    <td>1973</td>
+                    <td>⭐⭐⭐⭐⭐</td>
+                    <td><button class="select-btn">Select Album</button></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div style="width: 80px; height: 80px; background: linear-gradient(45deg, #667eea, #764ba2); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; margin: 0 auto;">POP</div>
+                    </td>
+                    <td>
+                        <div class="album-title">Thriller</div>
+                        <div class="artist-name">Michael Jackson</div>
+                    </td>
+                    <td><span class="genre-tag">Pop</span></td>
+                    <td>1982</td>
+                    <td>⭐⭐⭐⭐⭐</td>
+                    <td><button class="select-btn">Select Album</button></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div style="width: 80px; height: 80px; background: linear-gradient(45deg, #f093fb, #f5576c); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; margin: 0 auto;">JAZZ</div>
+                    </td>
+                    <td>
+                        <div class="album-title">Kind of Blue</div>
+                        <div class="artist-name">Miles Davis</div>
+                    </td>
+                    <td><span class="genre-tag">Jazz</span></td>
+                    <td>1959</td>
+                    <td>⭐⭐⭐⭐⭐</td>
+                    <td><button class="select-btn">Select Album</button></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div style="width: 80px; height: 80px; background: linear-gradient(45deg, #4facfe, #00f2fe); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; margin: 0 auto;">BLUES</div>
+                    </td>
+                    <td>
+                        <div class="album-title">Born to Run</div>
+                        <div class="artist-name">Bruce Springsteen</div>
+                    </td>
+                    <td><span class="genre-tag">Rock/Blues</span></td>
+                    <td>1975</td>
+                    <td>⭐⭐⭐⭐⭐</td>
+                    <td><button class="select-btn">Select Album</button></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div style="width: 80px; height: 80px; background: linear-gradient(45deg, #fa709a, #fee140); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; margin: 0 auto;">SOUL</div>
+                    </td>
+                    <td>
+                        <div class="album-title">What's Going On</div>
+                        <div class="artist-name">Marvin Gaye</div>
+                    </td>
+                    <td><span class="genre-tag">Soul/R&B</span></td>
+                    <td>1971</td>
+                    <td>⭐⭐⭐⭐⭐</td>
+                    <td><button class="select-btn">Select Album</button></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div style="width: 80px; height: 80px; background: linear-gradient(45deg, #a8edea, #fed6e3); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #333; font-weight: bold; margin: 0 auto;">FOLK</div>
+                    </td>
+                    <td>
+                        <div class="album-title">The Times They Are a-Changin'</div>
+                        <div class="artist-name">Bob Dylan</div>
+                    </td>
+                    <td><span class="genre-tag">Folk</span></td>
+                    <td>1964</td>
+                    <td>⭐⭐⭐⭐⭐</td>
+                    <td><button class="select-btn">Select Album</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+</body>
+</html>
