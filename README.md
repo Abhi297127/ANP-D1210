@@ -54,4 +54,14 @@ ASSIGNMENTS/
 │   └── Assignment_03/
 │       ├── Assignment_03.png
 │       └── index.html
+├── Lab_04/
+│   ├── Assignment_01/
+│   │   └──  index.html
+│   └── Assignment_01.png 
+├── Lab_05/
+│   ├── Assignment_01/
+│   │   └──  index.html
+│   ├── Assignment_01_01.png 
+│   ├── Assignment_01_02.png
+│   └── Assignment_01_03.png
 └── README.md

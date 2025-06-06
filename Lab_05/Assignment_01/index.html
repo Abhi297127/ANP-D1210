@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glenary's Restaurant</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 15px 0;
+            position: relative;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ff6b35;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .section-title {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 40px;
+            text-align: left;
+            color: #333;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .menu-item {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .menu-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .menu-item-content {
+            padding: 20px;
+        }
+
+        .item-name {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .item-description {
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .item-price {
+            font-size: 18px;
+            font-weight: bold;
+            color: #ff6b35;
+        }
+
+        .popular-dishes {
+            margin-top: 40px;
+        }
+
+        .video-container {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .video-caption {
+            padding: 20px;
+            text-align: center;
+            font-size: 18px;
+            color: #333;
+            background-color: #f8f8f8;
+        }
+
+        .highlight {
+            background-color: yellow;
+            padding: 2px 4px;
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+
+        .italic {
+            font-style: italic;
+        }
+
+        .underline {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-links {
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">Glenary's Restaurant</div>
+            <nav class="nav-links">
+                <a href="#menu">Menu</a>
+                <a href="#popular">Popular Dishes</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <section id="menu">
+            <h1 class="section-title">Menu</h1>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <!-- <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Pizza Supreme"> -->
+                    <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                        alt="Pizza Supreme">
+                    <div class="menu-item-content">
+                        <h2 class="item-name">Pizza Supreme</h2>
+                        <p class="item-description">
+                            <span class="italic">Pizza sauce, mozzarella, bacon, onion, beef mince, capsicum, pepperoni,
+                                mushroom, olives</span>
+                        </p>
+                        <p class="item-price">Price: <span class="bold">₹250</span></p>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <img src="https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                        alt="Paneer Tikka">
+                    <div class="menu-item-content">
+                        <h2 class="item-name">Paneer Tikka</h2>
+                        <p class="item-description">
+                            <span class="italic">Paneer, Yogurt, Ground Spices, Bell Peppers, Onions, Baby Corn,
+                                Mushrooms</span>
+                        </p>
+                        <p class="item-price">Price: <span class="bold">₹200</span></p>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                        alt="Chicken Biryani">
+                    <div class="menu-item-content">
+                        <h2 class="item-name">Chicken Biryani</h2>
+                        <p class="item-description">
+                            <span class="italic">Aromatic basmati rice, tender chicken, <span class="highlight">special
+                                    spices</span>, fried onions, mint, saffron</span>
+                        </p>
+                        <p class="item-price">Price: <span class="bold">₹300</span></p>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                        alt="Butter Chicken">
+                    <div class="menu-item-content">
+                        <h2 class="item-name">Butter Chicken</h2>
+                        <p class="item-description">
+                            <span class="italic"><span class="underline">Creamy tomato gravy</span>, tender chicken,
+                                butter, cream, aromatic spices</span>
+                        </p>
+                        <p class="item-price">Price: <span class="bold">₹280</span></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="popular" class="popular-dishes">
+            <h1 class="section-title">Popular Dishes</h1>
+
+            <div class="video-container">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/1-SJGQ2HLp8"
+                        title="Indian Street Food - Tandoori Cooking" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
+                <div class="video-caption">
+                    <strong>Tandoori Specialties</strong> - Watch how our chefs prepare authentic tandoori dishes
+                </div>
+            </div>
+
+            <div class="video-container">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/sv3TXMSv6Lw" title="Pizza Making Process" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
+                <div class="video-caption">
+                    <strong>Fresh Pizza Making</strong> - From dough to delicious, see our pizza creation process
+                </div>
+            </div>
+
+            <div class="video-container">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/UVAMAoA2_WU" title="Biryani Cooking" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
+                <div class="video-caption">
+                    <strong>Authentic Biryani</strong> - Traditional cooking methods for the perfect biryani
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>
