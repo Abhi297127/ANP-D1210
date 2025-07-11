@@ -64,4 +64,31 @@ ASSIGNMENTS/
 │   ├── Assignment_01_01.png 
 │   ├── Assignment_01_02.png
 │   └── Assignment_01_03.png
+├── Lab_06/
+│   ├── Assignment_01/
+│   │   └──  Q1.html
+│   └── Assignment_02/
+│       └──  Q2.html
+├── Lab_07/
+├── Lab_08/
+│   ├── Assignment_01/
+│   │   └──  Q1.html
+│   └── Assignment_02/
+│       └──  Q2.html
+├── React_Labs/
+│   ├── Assignment_01/
+│   │   ├──  Q1/
+│   │   │    └──app.js
+│   │   └──  Q2/
+│   │        └──app.js
+│   └── Assignment_02/
+│       ├──  Q1/
+│       │    └──script.js
+│       ├──  Q2/
+│       │    └──script.js
+│       ├──  destination.txt
+│       ├──  file1.txt
+│       ├──  file2.txt
+│       ├──  merged.txt
+│       └──  source.txt
 └── README.md
