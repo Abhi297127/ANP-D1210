@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background Color Changer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: background-color 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .container {
+            text-align: center;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            transform: translateY(0);
+            transition: all 0.3s ease;
+        }
+
+        .container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(45deg, #fff, #f0f0f0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .change-btn {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+            color: white;
+            border: none;
+            padding: 20px 40px;
+            font-size: 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.3);
+            position: relative;
+            overflow: hidden;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .change-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .change-btn:hover::before {
+            left: 100%;
+        }
+
+        .change-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(255, 107, 107, 0.4);
+        }
+
+        .change-btn:active {
+            transform: translateY(-1px) scale(1.02);
+        }
+
+        .color-info {
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
+        }
+
+        .current-color {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .color-hex {
+            font-family: 'Courier New', monospace;
+            font-size: 24px;
+            letter-spacing: 2px;
+            padding: 10px 20px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .stats {
+            margin-top: 20px;
+            font-size: 16px;
+            opacity: 0.8;
+        }
+
+        .click-count {
+            font-weight: bold;
+            color: #ffd700;
+        }
+
+        @keyframes colorChange {
+            0% { opacity: 0.8; }
+            50% { opacity: 1; }
+            100% { opacity: 0.8; }
+        }
+
+        .changing {
+            animation: colorChange 0.5s ease;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 20px;
+                padding: 30px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .change-btn {
+                padding: 15px 25px;
+                font-size: 16px;
+            }
+        }
+
+        /* Color transition effects */
+        .pulse {
+            animation: pulse 0.6s ease;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎨 Color Magic</h1>
+        <p class="subtitle">Transform your world with a single click!</p>
+        
+        <button class="change-btn" onclick="changeBackgroundColor()">
+            Change Background Color
+        </button>
+        
+        <div class="color-info">
+            <div class="current-color">Current Color:</div>
+            <div class="color-hex" id="colorHex">#667eea</div>
+            <div class="stats">
+                <span>Clicks: </span>
+                <span class="click-count" id="clickCount">0</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let clickCount = 0;
+        let currentColor = '#667eea';
+
+        function changeBackgroundColor() {
+            const body = document.body;
+            const container = document.querySelector('.container');
+            const colorHex = document.getElementById('colorHex');
+            const clickCountElement = document.getElementById('clickCount');
+            const button = document.querySelector('.change-btn');
+            
+            // Generate random color
+            const newColor = generateRandomColor();
+            currentColor = newColor;
+            
+            // Add animation classes
+            body.classList.add('changing');
+            container.classList.add('pulse');
+            
+            // Change background
+            body.style.background = newColor;
+            
+            // Update color display
+            colorHex.textContent = newColor;
+            
+            // Update click count
+            clickCount++;
+            clickCountElement.textContent = clickCount;
+            
+            // Update button text temporarily
+            const originalText = button.textContent;
+            button.textContent = 'Magical! ✨';
+            
+            setTimeout(() => {
+                button.textContent = originalText;
+                body.classList.remove('changing');
+                container.classList.remove('pulse');
+            }, 600);
+            
+            // Adjust text color based on background brightness
+            adjustTextColor(newColor);
+        }
+
+        function generateRandomColor() {
+            const colorTypes = ['solid', 'gradient', 'radial'];
+            const type = colorTypes[Math.floor(Math.random() * colorTypes.length)];
+            
+            if (type === 'solid') {
+                return generateSolidColor();
+            } else if (type === 'gradient') {
+                return generateLinearGradient();
+            } else {
+                return generateRadialGradient();
+            }
+        }
+
+        function generateSolidColor() {
+            const colors = [
+                '#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4', '#FECA57',
+                '#FF9FF3', '#54A0FF', '#5F27CD', '#00D2D3', '#FF9F43',
+                '#10AC84', '#EE5A24', '#0652DD', '#9980FA', '#FFC312',
+                '#C4E538', '#12CBC4', '#FDA7DF', '#ED4C67', '#F79F1F',
+                '#A3CB38', '#1289A7', '#D63031', '#74B9FF', '#00B894',
+                '#FDCB6E', '#6C5CE7', '#FD79A8', '#E17055', '#00CEC9'
+            ];
+            
+            return colors[Math.floor(Math.random() * colors.length)];
+        }
+
+        function generateLinearGradient() {
+            const color1 = generateSolidColor();
+            const color2 = generateSolidColor();
+            const angle = Math.floor(Math.random() * 360);
+            
+            return `linear-gradient(${angle}deg, ${color1}, ${color2})`;
+        }
+
+        function generateRadialGradient() {
+            const color1 = generateSolidColor();
+            const color2 = generateSolidColor();
+            
+            return `radial-gradient(circle, ${color1}, ${color2})`;
+        }
+
+        function adjustTextColor(backgroundColor) {
+            const body = document.body;
+            
+            // Extract main color from gradient or use solid color
+            let mainColor = backgroundColor;
+            if (backgroundColor.includes('gradient')) {
+                const colorMatch = backgroundColor.match(/#[0-9A-Fa-f]{6}/);
+                if (colorMatch) {
+                    mainColor = colorMatch[0];
+                } else {
+                    mainColor = '#667eea'; // fallback
+                }
+            }
+            
+            // Calculate brightness
+            const brightness = getBrightness(mainColor);
+            
+            // Adjust text color based on brightness
+            if (brightness > 128) {
+                body.style.color = '#333';
+            } else {
+                body.style.color = '#fff';
+            }
+        }
+
+        function getBrightness(hexColor) {
+            // Remove # if present
+            hexColor = hexColor.replace('#', '');
+            
+            // Convert hex to RGB
+            const r = parseInt(hexColor.substr(0, 2), 16);
+            const g = parseInt(hexColor.substr(2, 2), 16);
+            const b = parseInt(hexColor.substr(4, 2), 16);
+            
+            // Calculate brightness using the formula: (R*299 + G*587 + B*114) / 1000
+            return (r * 299 + g * 587 + b * 114) / 1000;
+        }
+
+        // Add keyboard support
+        document.addEventListener('keydown', function(event) {
+            if (event.code === 'Space' || event.code === 'Enter') {
+                event.preventDefault();
+                changeBackgroundColor();
+            }
+        });
+
+        // Add some initial animation
+        window.addEventListener('load', function() {
+            const container = document.querySelector('.container');
+            container.style.animation = 'pulse 0.8s ease';
+        });
+    </script>
+</body>
+</html>

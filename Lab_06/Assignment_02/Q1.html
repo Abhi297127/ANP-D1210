@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Information Display</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header text-center">
+                        <h2>User Information</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <label for="jsonInput" class="form-label">Enter JSON Data:</label>
+                            <textarea class="form-control" id="jsonInput" rows="4" placeholder='{"name": "John Doe", "age": 30, "email": "john@example.com"}'></textarea>
+                        </div>
+                        <button class="btn btn-primary w-100" onclick="displayUserInfo()">Display User Information</button>
+                    </div>
+                </div>
+                
+                <div id="userInfoContainer" class="mt-4"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function displayUserInfo() {
+            const jsonInput = document.getElementById('jsonInput').value;
+            const container = document.getElementById('userInfoContainer');
+            
+            // Clear previous content
+            container.innerHTML = '';
+            
+            try {
+                // Parse JSON data
+                const userData = JSON.parse(jsonInput);
+                
+                // Create heading
+                const heading = document.createElement('h3');
+                heading.textContent = 'User Information';
+                heading.className = 'text-center mb-3';
+                container.appendChild(heading);
+                
+                // Create user details section
+                const userSection = document.createElement('div');
+                userSection.className = 'card';
+                
+                const cardBody = document.createElement('div');
+                cardBody.className = 'card-body';
+                
+                // Create name element
+                const nameElement = document.createElement('p');
+                nameElement.innerHTML = `<strong>Name:</strong> ${userData.name}`;
+                cardBody.appendChild(nameElement);
+                
+                // Create age element
+                const ageElement = document.createElement('p');
+                ageElement.innerHTML = `<strong>Age:</strong> ${userData.age}`;
+                cardBody.appendChild(ageElement);
+                
+                // Create email element
+                const emailElement = document.createElement('p');
+                emailElement.innerHTML = `<strong>Email:</strong> ${userData.email}`;
+                cardBody.appendChild(emailElement);
+                
+                // Append card body to section
+                userSection.appendChild(cardBody);
+                
+                // Append section to container
+                container.appendChild(userSection);
+                
+            } catch (error) {
+                // Show error message
+                const errorDiv = document.createElement('div');
+                errorDiv.className = 'alert alert-danger';
+                errorDiv.textContent = 'Error: Please enter valid JSON data';
+                container.appendChild(errorDiv);
+            }
+        }
+        
+        // Sample JSON data for testing
+        const sampleData = '{"name": "John Doe", "age": 30, "email": "john@example.com"}';
+        document.getElementById('jsonInput').value = sampleData;
+    </script>
+</body>
+</html>

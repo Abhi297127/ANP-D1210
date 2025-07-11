@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Comprehensive HTML answers for 50 questions">
+    <meta name="keywords" content="HTML, CSS, web development, tutorial">
+    <meta name="author" content="HTML Tutorial">
+    <title>Complete HTML Answers - 50 Questions</title>
+    <style>
+        /* External CSS styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        /* Navigation */
+        .nav-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: #2c3e50;
+            padding: 15px 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .nav-bar ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .nav-bar li {
+            margin: 0 10px;
+        }
+        
+        .nav-bar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        
+        .nav-bar a:hover {
+            background-color: #34495e;
+            transform: translateY(-2px);
+        }
+        
+        /* Main content */
+        .main-content {
+            margin-top: 80px;
+        }
+        
+        /* Question sections */
+        .question {
+            margin: 40px 0;
+            padding: 25px;
+            border-left: 5px solid #3498db;
+            background: #f8f9fa;
+            border-radius: 0 10px 10px 0;
+        }
+        
+        .question h2 {
+            color: #2c3e50;
+            margin-top: 0;
+        }
+        
+        /* Flexbox layout */
+        .flex-container {
+            display: flex;
+            min-height: 300px;
+            margin: 20px 0;
+        }
+        
+        .flex-header {
+            background: #3498db;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            flex: 0 0 100%;
+        }
+        
+        .flex-sidebar {
+            background: #2ecc71;
+            color: white;
+            padding: 20px;
+            flex: 0 0 200px;
+        }
+        
+        .flex-content {
+            background: #ecf0f1;
+            padding: 20px;
+            flex: 1;
+        }
+        
+        .flex-footer {
+            background: #e74c3c;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            flex: 0 0 100%;
+        }
+        
+        /* Grid layout */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .grid-item {
+            background: #9b59b6;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 5px;
+            transition: transform 0.3s;
+        }
+        
+        .grid-item:hover {
+            transform: scale(1.05);
+        }
+        
+        /* Animations */
+        @keyframes colorChange {
+            0% { color: #e74c3c; }
+            25% { color: #f39c12; }
+            50% { color: #2ecc71; }
+            75% { color: #3498db; }
+            100% { color: #9b59b6; }
+        }
+        
+        .animated-text {
+            animation: colorChange 3s infinite;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        /* Button styles */
+        .btn {
+            background: #3498db;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 5px;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            background: #2980b9;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        /* Dropdown menu */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background: white;
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 5px;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        .dropdown-content a {
+            color: #333;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        
+        .dropdown-content a:hover {
+            background: #f1f1f1;
+        }
+        
+        /* Table styles */
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 20px 0;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        th {
+            background: #3498db;
+            color: white;
+        }
+        
+        tr:nth-child(even) {
+            background: #f2f2f2;
+        }
+        
+        /* Media queries */
+        @media (max-width: 768px) {
+            .flex-container {
+                flex-direction: column;
+            }
+            
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-bar ul {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+        
+        /* Box model demonstration */
+        .box-demo {
+            background: #f39c12;
+            color: white;
+            padding: 20px;
+            margin: 20px;
+            border: 5px solid #e67e22;
+            border-radius: 10px;
+            width: 300px;
+        }
+        
+        /* Semantic elements */
+        article {
+            background: #ecf0f1;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        aside {
+            background: #bdc3c7;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        
+        footer {
+            background: #34495e;
+            color: white;
+            padding: 30px;
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        /* Form styles */
+        form {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 15px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        
+        fieldset {
+            border: 2px solid #3498db;
+            border-radius: 5px;
+            margin: 15px 0;
+            padding: 15px;
+        }
+        
+        legend {
+            background: #3498db;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 3px;
+        }
+        
+        /* Figure styles */
+        figure {
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        figcaption {
+            font-style: italic;
+            color: #666;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Fixed Navigation Bar -->
+    <nav class="nav-bar">
+        <ul>
+            <li><a href="#q1">Basics</a></li>
+            <li><a href="#q11">Lists</a></li>
+            <li><a href="#q13">Media</a></li>
+            <li><a href="#q21">Tables</a></li>
+            <li><a href="#q31">Forms</a></li>
+            <li><a href="#q35">Semantic</a></li>
+            <li><a href="#q39">Graphics</a></li>
+            <li><a href="#q41">CSS</a></li>
+            <li><a href="#bottom">Bottom</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="main-content">
+            <!-- Question 1: Basic HTML Structure -->
+            <section id="q1" class="question">
+                <h2>Question 1: Basic HTML Structure</h2>
+                <!-- This is the head section containing metadata -->
+                <p>This entire document demonstrates a basic HTML structure with proper head, title, and body tags.</p>
+                <pre>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;title&gt;Page Title&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    Content goes here
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+            </section>
+
+            <!-- Question 2: Text Formatting -->
+            <section id="q2" class="question">
+                <h2>Question 2: Text Formatting</h2>
+                <p>This is a paragraph with <b>bold text</b>, <i>italic text</i>, and <u>underlined text</u>.</p>
+                <p>Modern approach: <strong>strong text</strong> and <em>emphasized text</em>.</p>
+            </section>
+
+            <!-- Question 3: Font Tag -->
+            <section id="q3" class="question">
+                <h2>Question 3: Font Tag Usage</h2>
+                <p><font face="Arial" color="red">This text uses Arial font in red color.</font></p>
+                <p><font face="Georgia" color="blue" size="4">This uses Georgia font in blue with size 4.</font></p>
+                <p><strong>Note:</strong> The &lt;font&gt; tag is deprecated. Use CSS instead.</p>
+            </section>
+
+            <!-- Question 4: Heading Levels -->
+            <section id="q4" class="question">
+                <h2>Question 4: Six Heading Levels</h2>
+                <h1>H1 - Main page title or primary heading</h1>
+                <h2>H2 - Major section headings</h2>
+                <h3>H3 - Subsection headings</h3>
+                <h4>H4 - Sub-subsection headings</h4>
+                <h5>H5 - Minor headings</h5>
+                <h6>H6 - Smallest headings for fine details</h6>
+                <p><strong>Usage:</strong> H1 for main titles, H2 for major sections, H3-H6 for subsections in hierarchical order.</p>
+            </section>
+
+            <!-- Question 5: HR and BR Tags -->
+            <section id="q5" class="question">
+                <h2>Question 5: HR and BR Tags in Poetry</h2>
+                <div>
+                    <h3>A Simple Poem</h3>
+                    Roses are red,<br>
+                    Violets are blue,<br>
+                    HTML is awesome,<br>
+                    And so are you!
+                    <hr>
+                    The sun sets low,<br>
+                    The day is done,<br>
+                    Tomorrow brings<br>
+                    A brand new sun.
+                </div>
+            </section>
+
+            <!-- Question 6: Comments (already throughout) -->
+            <section id="q6" class="question">
+                <h2>Question 6: HTML Comments</h2>
+                <!-- This is a comment explaining the navigation section -->
+                <p>Comments are used throughout this document to explain different sections.</p>
+                <!-- Example comment for demonstration -->
+                <p>Check the source code to see comments explaining each major section.</p>
+            </section>
+
+            <!-- Question 7: Strong and Em tags -->
+            <section id="q7" class="question">
+                <h2>Question 7: Strong and Em Tags</h2>
+                <p>Using <strong>strong</strong> instead of bold and <em>emphasis</em> instead of italic provides better semantic meaning.</p>
+                <p><strong>Important:</strong> This is semantically important content.</p>
+                <p><em>Note:</em> This is emphasized for attention.</p>
+            </section>
+
+            <!-- Question 8: Pre tag -->
+            <section id="q8" class="question">
+                <h2>Question 8: Pre Tag Usage</h2>
+                <pre>
+    This is preformatted text.
+    It preserves    spaces    and
+    line breaks exactly as written.
+    
+    Perfect for:
+    - Code snippets
+    - ASCII art
+    - Formatted data
+                </pre>
+            </section>
+
+            <!-- Question 9: Metadata (already in head) -->
+            <section id="q9" class="question">
+                <h2>Question 9: Metadata in Head</h2>
+                <p>The head section contains various meta tags:</p>
+                <ul>
+                    <li>&lt;meta charset="UTF-8"&gt; - Character encoding</li>
+                    <li>&lt;meta name="viewport"&gt; - Responsive design</li>
+                    <li>&lt;meta name="description"&gt; - Page description</li>
+                    <li>&lt;meta name="keywords"&gt; - SEO keywords</li>
+                    <li>&lt;title&gt; - Page title</li>
+                </ul>
+            </section>
+
+            <!-- Question 10: Abbr, Address, Mark -->
+            <section id="q10" class="question">
+                <h2>Question 10: Abbr, Address, Mark Tags</h2>
+                <p>The <abbr title="World Wide Web">WWW</abbr> was invented by Tim Berners-Lee.</p>
+                <p><mark>This text is highlighted</mark> for importance.</p>
+                <address>
+                    Contact Information:<br>
+                    Email: info@example.com<br>
+                    Phone: +1-234-567-8900<br>
+                    Address: 123 Web Street, HTML City, CSS 12345
+                </address>
+            </section>
+
+            <!-- Question 11: Nested Lists -->
+            <section id="q11" class="question">
+                <h2>Question 11: Nested Lists for Recipe</h2>
+                <h3>Chocolate Chip Cookies Recipe</h3>
+                <h4>Ingredients:</h4>
+                <ul>
+                    <li>Dry Ingredients:
+                        <ul>
+                            <li>2 cups all-purpose flour</li>
+                            <li>1 tsp baking soda</li>
+                            <li>1 tsp salt</li>
+                        </ul>
+                    </li>
+                    <li>Wet Ingredients:
+                        <ul>
+                            <li>1 cup butter, softened</li>
+                            <li>3/4 cup brown sugar</li>
+                            <li>1/2 cup white sugar</li>
+                            <li>2 large eggs</li>
+                        </ul>
+                    </li>
+                    <li>Add-ins:
+                        <ul>
+                            <li>2 cups chocolate chips</li>
+                            <li>1 cup chopped nuts (optional)</li>
+                        </ul>
+                    </li>
+                </ul>
+                
+                <h4>Instructions:</h4>
+                <ol>
+                    <li>Preheat oven to 375°F</li>
+                    <li>Mix dry ingredients:
+                        <ol>
+                            <li>Combine flour, baking soda, and salt</li>
+                            <li>Set aside</li>
+                        </ol>
+                    </li>
+                    <li>Prepare wet mixture:
+                        <ol>
+                            <li>Cream butter and sugars</li>
+                            <li>Add eggs one at a time</li>
+                            <li>Mix well</li>
+                        </ol>
+                    </li>
+                    <li>Combine and bake:
+                        <ol>
+                            <li>Gradually add dry ingredients</li>
+                            <li>Fold in chocolate chips</li>
+                            <li>Drop on baking sheet</li>
+                            <li>Bake 9-11 minutes</li>
+                        </ol>
+                    </li>
+                </ol>
+            </section>
+
+            <!-- Question 12: Definition Lists -->
+            <section id="q12" class="question">
+                <h2>Question 12: Definition Lists for Glossary</h2>
+                <h3>HTML/CSS Glossary</h3>
+                <dl>
+                    <dt>HTML</dt>
+                    <dd>HyperText Markup Language - the standard markup language for creating web pages</dd>
+                    
+                    <dt>CSS</dt>
+                    <dd>Cascading Style Sheets - used for describing the presentation of a document written in HTML</dd>
+                    
+                    <dt>JavaScript</dt>
+                    <dd>A programming language that enables interactive web pages and is an essential part of web applications</dd>
+                    
+                    <dt>DOM</dt>
+                    <dd>Document Object Model - a programming interface for HTML and XML documents</dd>
+                    
+                    <dt>Responsive Design</dt>
+                    <dd>An approach to web design that makes web pages render well on a variety of devices and window sizes</dd>
+                    
+                    <dt>Semantic HTML</dt>
+                    <dd>HTML that introduces meaning to the web page rather than just presentation</dd>
+                </dl>
+            </section>
+
+            <!-- Question 13: Images -->
+            <section id="q13" class="question">
+                <h2>Question 13: Images with Different Formats</h2>
+                <img src="https://via.placeholder.com/300x200.png/3498db/ffffff?text=PNG+Image" 
+                     alt="PNG format image" 
+                     title="This is a PNG image - good for graphics with transparency">
+                <br><br>
+                <img src="https://via.placeholder.com/300x200.jpg/e74c3c/ffffff?text=JPG+Image" 
+                     alt="JPG format image" 
+                     title="This is a JPG image - good for photographs">
+            </section>
+
+            <!-- Question 14: Video -->
+            <section id="q14" class="question">
+                <h2>Question 14: Video with Multiple Sources</h2>
+                <video width="400" height="300" controls>
+                    <source src="movie.mp4" type="video/mp4">
+                    <source src="movie.webm" type="video/webm">
+                    <source src="movie.ogg" type="video/ogg">
+                    Your browser does not support the video tag. Please update your browser to view this content.
+                </video>
+                <p><strong>Note:</strong> Video files are not actually hosted, this demonstrates the structure.</p>
+            </section>
+
+            <!-- Question 15: Audio -->
+            <section id="q15" class="question">
+                <h2>Question 15: Audio with Autoplay and Loop</h2>
+                <audio controls autoplay loop>
+                    <source src="audio.mp3" type="audio/mpeg">
+                    <source src="audio.ogg" type="audio/ogg">
+                    <source src="audio.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                </audio>
+                <p><strong>Note:</strong> Autoplay is often blocked by browsers for user experience. Audio files are not actually hosted.</p>
+            </section>
+
+            <!-- Question 16: Animated GIF -->
+            <section id="q16" class="question">
+                <h2>Question 16: Animated GIF</h2>
+                <img src="https://via.placeholder.com/200x200.gif/f39c12/ffffff?text=Animated+GIF" 
+                     alt="Animated GIF demonstration" 
+                     title="Animated GIFs are great for simple animations and demonstrations">
+                <p><strong>Use cases for animated GIFs:</strong></p>
+                <ul>
+                    <li>Loading animations</li>
+                    <li>Simple UI demonstrations</li>
+                    <li>Micro-interactions</li>
+                    <li>Tutorials and walkthroughs</li>
+                </ul>
+            </section>
+
+            <!-- Question 17: Embed PDF -->
+            <section id="q17" class="question">
+                <h2>Question 17: Embed PDF</h2>
+                <embed src="document.pdf" type="application/pdf" width="100%" height="400px">
+                <p>If the PDF doesn't display, <a href="document.pdf" target="_blank">click here to download</a>.</p>
+            </section>
+
+            <!-- Question 18: Responsive Image -->
+            <section id="q18" class="question">
+                <h2>Question 18: Responsive Image</h2>
+                <img src="https://via.placeholder.com/800x400/2ecc71/ffffff?text=Responsive+Image" 
+                     alt="Responsive image" 
+                     style="width: 100%; height: auto; max-width: 800px; border-radius: 10px;">
+                <p>This image scales with the container width using width: 100%</p>
+            </section>
+
+            <!-- Question 19: Image Grid -->
+            <section id="q19" class="question">
+                <h2>Question 19: Image Grid Layout</h2>
+                <div class="grid-container">
+                    <img src="https://via.placeholder.com/200x150/e74c3c/ffffff?text=Image+1" alt="Grid Image 1" style="width: 100%; border-radius: 5px;">
+                    <img src="https://via.placeholder.com/200x150/3498db/ffffff?text=Image+2" alt="Grid Image 2" style="width: 100%; border-radius: 5px;">
+                    <img src="https://via.placeholder.com/200x150/2ecc71/ffffff?text=Image+3" alt="Grid Image 3" style="width: 100%; border-radius: 5px;">
+                    <img src="https://via.placeholder.com/200x150/f39c12/ffffff?text=Image+4" alt="Grid Image 4" style="width: 100%; border-radius: 5px;">
+                    <img src="https://via.placeholder.com/200x150/9b59b6/ffffff?text=Image+5" alt="Grid Image 5" style="width: 100%; border-radius: 5px;">
+                    <img src="https://via.placeholder.com/200x150/1abc9c/ffffff?text=Image+6" alt="Grid Image 6" style="width: 100%; border-radius: 5px;">
+                </div>
+            </section>
+
+            <!-- Question 20: Figure and Figcaption -->
+            <section id="q20" class="question">
+                <h2>Question 20: Figure and Figcaption</h2>
+                <figure>
+                    <img src="https://via.placeholder.com/400x300/34495e/ffffff?text=Data+Visualization" 
+                         alt="Data visualization chart" 
+                         style="width: 100%; max-width: 400px; border-radius: 8px;">
+                    <figcaption>Figure 1: Sample data visualization showing quarterly sales growth from 2023-2024</figcaption>
+                </figure>
+            </section>
+
+            <!-- Question 21: 5x5 Table -->
+            <section id="q21" class="question">
+                <h2>Question 21: 5x5 Table with Header and Footer</h2>
+                <table>
+                    <caption>Monthly Sales Report - Q1 2024</caption>
+                    <thead>
+                        <tr>
+                            <th>Month</th>
+                            <th>Product A</th>
+                            <th>Product B</th>
+                            <th>Product C</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>January</td>
+                            <td>$5,000</td>
+                            <td>$3,200</td>
+                            <td>$2,800</td>
+                            <td>$11,000</td>
+                        </tr>
+                        <tr>
+                            <td>February</td>
+                            <td>$5,500</td>
+                            <td>$3,400</td>
+                            <td>$3,100</td>
+                            <td>$12,000</td>
+                        </tr>
+                        <tr>
+                            <td>March</td>
+                            <td>$6,200</td>
+                            <td>$3,800</td>
+                            <td>$3,500</td>
+                            <td>$13,500</td>
+                        </tr>
+                        <tr>
+                            <td>April</td>
+                            <td>$6,800</td>
+                            <td>$4,200</td>
+                            <td>$3,800</td>
+                            <td>$14,800</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th>Total</th>
+                            <th>$23,500</th>
+                            <th>$14,600</th>
+                            <th>$13,200</th>
+                            <th>$51,300</th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </section>
+
+            <!-- Question 22: Colspan and Rowspan -->
+            <section id="q22" class="question">
+                <h2>Question 22: Colspan and Rowspan</h2>
+                <table>
+                    <tr>
+                        <th colspan="3">Student Performance Report</th>
+                    </tr>
+                    <tr>
+                        <th>Student</th>
+                        <th>Subject</th>
+                        <th>Grade</th>
+                    </tr>
+                    <tr>
+                        <td rowspan="3">John Doe</td>
+                        <td>Mathematics</td>
+                        <td>A</td>
+                    </tr>
+                    <tr>
+                        <td>Science</td>
+                        <td>B+</td>
+                    </tr>
+                    <tr>
+                        <td>English</td>
+                        <td>A-</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="3">Jane Smith</td>
+                        <td>Mathematics</td>
+                        <td>A+</td>
+                    </tr>
+                    <tr>
+                        <td>Science</td>
+                        <td>A</td>
+                    </tr>
+                    <tr>
+                        <td>English</td>
+                        <td>A</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Average Grade</td>
+                        <td>A-</td>
+                    </tr>
+                </table>
+            </section>
+
+            <!-- Question 23: School Timetable -->
+            <section id="q23" class="question">
+                <h2>Question 23: School Timetable</h2>
+                <table>
+                    <caption>Class 10-A Weekly Timetable</caption>
+                    <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>Monday</th>
+                            <th>Tuesday</th>
+                            <th>Wednesday</th>
+                            <th>Thursday</th>
+                            <th>Friday</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>9:00-10:00</td>
+                            <td>Mathematics</td>
+                            <td>English</td>
+                            <td>Science</td>
+                            <td>History</td>
+                            <td>Mathematics</td>
+                        </tr>
+                        <tr>
+                            <td>10:00-11:00</td>
+                            <td>English</td>
+                            <td>Mathematics</td>
+                            <td>Geography</td>
+                            <td>Science</td>
+                            <td>English</td>
+                        </tr>
+                        <tr>
+                            <td>11:00-11:30</td>
+                            <td colspan="5" style="text-align: center; background: #f39c12; color: white;">BREAK</td>
+                        </tr>
+                        <tr>
+                            <td>11:30-12:30</td>
+                            <td>Science</td>
+                            <td>History</td>
+                            <td>Mathematics</td>
+                            <td>English</td>
+                            <td>Art</td>
+                        </tr>
+                        <tr>
+                            <td>12:30-1:30</td>
+                            <td>History</td>
+                            <td>Science</td>
+                            <td>Physical Ed.</td>
+                            <td>Geography</td>
+                            <td>Music</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Question 24: Internal Links -->
+            <section id="q24" class="question">
+                <h2>Question 24: Internal Links</h2>
+                <p>Click <a href="#bottom">here to jump to the bottom of the page</a>.</p>
+                <p>Or use the navigation menu at the top to jump to different sections.</p>
+            </section>
+
+            <!-- Question 25: External Links -->
+            <section id="q25" class="question">
+                <h2>Question 25: External Links with Target and Rel</h2>
+                <p>Visit <a href="https://www.w3schools.com" target="_blank" rel="noopener noreferrer">W3Schools</a> for more HTML tutorials.</p>
+                <p>Check out <a href="https://developer.mozilla.org/en-US/docs/Web" target="_blank" rel="noopener noreferrer">MDN Web Docs</a> for comprehensive documentation.</p>
+                <p>Learn more about HTML at <a href="https://www.html5rocks.com/en/" target="_blank" rel="noopener noreferrer">HTML5 Rocks</a>.</p>
+                </section>
+            <!-- Question 26: Mailto Link -->
+            <section id="q26" class="question">
+                <h2>Question 26: Mailto Link</h2>
+                <p>Contact us at <a href="mailto:support@example.com">support@example.com</a>.</p>
+            </section>
+        </div>
+    </body>
+</html>
