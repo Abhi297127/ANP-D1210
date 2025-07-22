@@ -7,7 +7,7 @@ This repository contains all practical assignments given by **Akash Sir** as par
 ## 👨‍💻 Submitted By
 
 - **Name:** Abhishek Shashikant Shelke (Abhi Shelke)
-- **Course:** BCA (3rd Year)
+- **Course:** BCA 
 - **College:** Abasaheb Garware College, Pune (Autonomous)
 - **Email:** abhishelke2971@gmail.com
 - **Mobile:** 9766502971
